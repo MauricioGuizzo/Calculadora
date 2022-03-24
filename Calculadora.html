@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="Calculadora.css">
+</head>
+<body>
+    
+<div>
+
+    <!-- Cabeçalho da página -->
+    <header class="Cabecalho-grl-calc">
+        <h1>Calculadora</h1>
+    </header>
+
+    <!-- Vídeo de Background -->
+    <div class="background-grl">
+        <video autoplay loop muted>
+            <source src="Space_background.mp4"
+            type="video/mp4">
+        </video>
+    </div>
+
+    <!-- div contendo todo o conteúdo -->
+    <div class="Calc-grl">
+        
+        <!-- div que contém os resultados da calculadora -->
+        <div class="Result-grl-calc"></div>
+
+        <!-- Botões da calculadora / tabela -->
+        <table>
+            <tbody>
+                <tr>
+                    <td> <button class="btn-grl" onclick="ClrnNum()"> C </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('/')"> ÷ </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('*')"> x </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('%')"> % </button> </td>
+                </tr>
+                <tr>
+                    <td> <button class="btn-grl" onclick="InsNum('7')"> 7 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('8')"> 8 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('9')"> 9 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('+')"> + </button> </td>
+                </tr>
+                <tr>
+                    <td> <button class="btn-grl" onclick="InsNum('4')"> 4 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('5')"> 5 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('6')"> 6 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('-')"> - </button> </td>
+                </tr>
+                <tr>
+                    <td> <button class="btn-grl" onclick="InsNum('1')"> 1 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('2')"> 2 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('3')"> 3 </button> </td>
+                    <td rowspan="2"> <button class="btn-grl" style="height:7rem;"onclick= "CalcNum()"> = </button> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <button class="btn-grl" style="width:7rem;" onclick="InsNum('0')"> 0 </button> </td>
+                    <td> <button class="btn-grl" onclick="InsNum('.')"> . </button> </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+    <script>
+    
+    // Função que coleta os dados e os insere na div resultados //
+    function InsNum(numBtn){
+        let ValNum = document.querySelector('div.Result-grl-calc').innerHTML
+
+        let RendNum = document.querySelector('div.Result-grl-calc').innerHTML = ValNum + numBtn
+        }
+
+    // Função que limpa qualquer número contido na div //
+    function ClrnNum(){
+    
+        let ClearAllNumbers = document.querySelector('div.Result-grl-calc').innerHTML = ""
+
+    }
+    // Função que calcula os valores utilizando "eval" //
+    function CalcNum(){
+        let SlctAllNumbers = document.querySelector('div.Result-grl-calc').innerHTML
+
+            if(SlctAllNumbers){
+                document.querySelector('div.Result-grl-calc').innerHTML = eval(SlctAllNumbers)
+            }
+    }
+
+    </script>
+
+</body>
+</html>
